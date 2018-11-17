@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254121594}
+  - component: {fileID: 254121595}
   m_Layer: 0
   m_Name: PreciousObjectSpawner
   m_TagString: Untagged
@@ -141,6 +142,29 @@ Transform:
   m_Father: {fileID: 1585628388}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254121595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 254121593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e09dd891ae01b4e95f80f7633a6401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumOfPreciousOnScreen: 1
+  preciousPrefab: {fileID: 1375545108751048, guid: dfcb52cabbcbb4741a7be2cf4d076c10,
+    type: 2}
+  preciousSprites:
+  - {fileID: 21300000, guid: 1cc6b62a910fdc24888123a82ec68e34, type: 3}
+  - {fileID: 21300000, guid: b0cb342e8cd325449a68fb69ea795657, type: 3}
+  - {fileID: 21300000, guid: 175d31f4cb1a4d14ea2c4336f7d4acd5, type: 3}
+  - {fileID: 21300000, guid: c3beeeade2ef60a4bad8137a557c7956, type: 3}
+  - {fileID: 21300000, guid: ad27612da4b2c8e42953c19785c46507, type: 3}
+  MinTimeBetweenSpawns: 0.5
+  MaxTimeBetweenSpawns: 2
+  canStartSpawning: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,62 +242,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &825148201
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114640673282887690, guid: c529effafa757bd4b9e51d47eec165f7,
-        type: 2}
-      propertyPath: shinyUI
-      value: 
-      objectReference: {fileID: 2132754164}
-    - target: {fileID: 114118874068636034, guid: c529effafa757bd4b9e51d47eec165f7,
-        type: 2}
-      propertyPath: shinyUI
-      value: 
-      objectReference: {fileID: 2132754164}
-    - target: {fileID: 1758847047960674, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &895767107
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +304,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1088166417
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427463914667436, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114118874068636034, guid: c529effafa757bd4b9e51d47eec165f7,
+        type: 2}
+      propertyPath: shinyUI
+      value: 
+      objectReference: {fileID: 2132754164}
+    - target: {fileID: 114640673282887690, guid: c529effafa757bd4b9e51d47eec165f7,
+        type: 2}
+      propertyPath: shinyUI
+      value: 
+      objectReference: {fileID: 2132754164}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1179479986
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,12 +688,12 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1758847047960674, guid: c529effafa757bd4b9e51d47eec165f7,
     type: 2}
-  m_PrefabInternal: {fileID: 825148201}
+  m_PrefabInternal: {fileID: 1088166417}
 --- !u!114 &1470436828 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114640673282887690, guid: c529effafa757bd4b9e51d47eec165f7,
     type: 2}
-  m_PrefabInternal: {fileID: 825148201}
+  m_PrefabInternal: {fileID: 1088166417}
   m_Script: {fileID: 11500000, guid: b2d2ad7c64a9b9341b862b98ad0ded1f, type: 3}
 --- !u!1 &1478136191
 GameObject:
@@ -882,12 +902,12 @@ MonoBehaviour:
   - I collected them...
   - And it was dark
   - So I learned how to shine...
-  - The other stars ran away when they saw my light.
-  - I was so bright...
+  - The other stars didn't like my light.
+  - They ran away when they saw me shine...
   - My light helped me find precious things.
   - I collected them too.
   - There were bad things in the dark.
-  - I scared them away with my light.
+  - I scared them away with my light...
   player: {fileID: 1470436822}
   blinkSpeed: 0.4
   blinkNumber: 6

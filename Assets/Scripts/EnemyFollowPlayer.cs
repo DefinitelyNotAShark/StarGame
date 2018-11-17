@@ -11,6 +11,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     [SerializeField]
     private float playerPunishmentTime;
 
+    private AudioSource audio;
     private GameObject player;
     private Vector2 vectorToMove;
 
@@ -40,6 +41,7 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     IEnumerator EnemyGotPlayerPunishment()
     {
+        audio.Play();
         GetComponent<SpriteRenderer>().enabled = false;
         player.GetComponent<MovePlayer>().canMove = false;
         player.GetComponent<CollectShinyThings>().DestroyAllShinyThings();
@@ -48,4 +50,5 @@ public class EnemyFollowPlayer : MonoBehaviour
         SpawnEnemy.enemiesOnScreen--;
         Destroy(this.gameObject);
     }
+
 }

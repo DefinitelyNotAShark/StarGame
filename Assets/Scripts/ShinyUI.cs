@@ -19,20 +19,16 @@ public class ShinyUI : MonoBehaviour
 
     public void AddUI()
     {
-        Debug.Log("ADDING BARS");
-        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 200 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
+        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 130 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
         bars.Add(barInstance.gameObject);
         barX += barSpacing;//every time we move it over a bit
     }
 
     public void DeleteUI()
     {
-
-        Debug.Log("DELETING BARS");
         GameObject barToDestroy = bars[bars.Count - 1];
         bars.Remove(barToDestroy);
         Destroy(barToDestroy);
         barX -= barSpacing;
-
     }
 }

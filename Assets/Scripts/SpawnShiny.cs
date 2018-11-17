@@ -10,7 +10,6 @@ public class SpawnShiny : MonoBehaviour
     [SerializeField]
     private GameObject shinyPrefab;
 
-
     [SerializeField]
     private float MinTimeBetweenSpawns;
 

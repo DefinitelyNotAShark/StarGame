@@ -42,12 +42,13 @@ GameObject:
   - component: {fileID: 114917314503147154}
   - component: {fileID: 114365382445387510}
   - component: {fileID: 114640673282887690}
+  - component: {fileID: 114613848729192724}
   - component: {fileID: 61006203447062006}
   - component: {fileID: 82200574450286190}
   - component: {fileID: 50096240751574160}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +359,6 @@ MonoBehaviour:
   shineSound: {fileID: 8300000, guid: 2175ba641033a5541a671b2129e282ac, type: 3}
   parentCollider: {fileID: 61006203447062006}
   shinyUI: {fileID: 0}
-  shinyCollectionScript: {fileID: 114640673282887690}
 --- !u!114 &114365382445387510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,6 +373,18 @@ MonoBehaviour:
   horizontalName: Horizontal
   verticalName: Vertical
   speed: 6
+  canMove: 0
+--- !u!114 &114613848729192724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758847047960674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab555af013095e240a9687faed3a003f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114640673282887690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,7 +444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 58080f2a3fbfe564e911339c2602fca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -478,7 +490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d933452007d4a4c4eb29d8a32ae0af9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

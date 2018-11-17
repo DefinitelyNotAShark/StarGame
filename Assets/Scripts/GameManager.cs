@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         animateTextScript.AnimateNewText(storyText[1] + "\n" + storyText[2]);
         yield return new WaitForSeconds(timeAfterLongPrompt);//don't have to wait very long
         //start a spawn script of items to collect
-        while (player.GetComponent<CollectShinyThings>().itemsCollected < 2)
+        while (player.GetComponent<CollectShinyThings>().itemsCollected < 3)
         {
             GetComponentInChildren<SpawnShiny>().canStartSpawning = true;
             yield return new WaitForSeconds(1f);
@@ -121,26 +121,34 @@ public class GameManager : MonoBehaviour
             promptImage.enabled = false;
             yield return new WaitForSeconds(blinkSpeed);
         }
+        promptImage.enabled = false;
+        yield return new WaitForSeconds(1);
         StartCoroutine(ShiningScaresMyFriendsPrompt());
     }
 
     IEnumerator ShiningScaresMyFriendsPrompt()
     {
         animateTextScript.AnimateNewText(storyText[5] + "\n" + storyText[6]);
-        yield return new WaitForSeconds(timeAfterLongPrompt * 1.5f);//longer
+        yield return new WaitForSeconds(timeAfterLongPrompt * 3);//longer
+        StartCoroutine(PreciousThingsPrompt());
+    }
+    IEnumerator PreciousThingsPrompt()
+    {
+        animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
+        yield return new WaitForSeconds(timeAfterLongPrompt);
+        GetComponentInChildren<SpawnPreciousObject>().canStartSpawning = true;//start spawning my precioussss
+        while (player.GetComponent<PlayerPreciousCount>())//.count < 1
+        {
+
+        }//keep it simple until they collect a precious
         StartCoroutine(EnemiesPrompt());
     }
 
     IEnumerator EnemiesPrompt()
     {
         animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
-        yield return new WaitForSeconds(timeAfterLongPrompt);
+        yield return new WaitForSeconds(timeAfterLongPrompt * 2);
         GetComponentInChildren<SpawnEnemy>().canStartSpawning = true;
 
-    }
-    IEnumerator PreciousThingsPrompt()
-    {
-        animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
-        yield return new WaitForSeconds(timeAfterLongPrompt);
     }
 }
