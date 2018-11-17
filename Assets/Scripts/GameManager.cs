@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
     IEnumerator ShiningScaresMyFriendsPrompt()
     {
         animateTextScript.AnimateNewText(storyText[5] + "\n" + storyText[6]);
-        yield return new WaitForSeconds(timeAfterLongPrompt * 3);//longer
+        yield return new WaitForSeconds(timeAfterLongPrompt * 2.3f);//longer
         StartCoroutine(PreciousThingsPrompt());
     }
     IEnumerator PreciousThingsPrompt()
@@ -137,16 +137,16 @@ public class GameManager : MonoBehaviour
         animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
         yield return new WaitForSeconds(timeAfterLongPrompt);
         GetComponentInChildren<SpawnPreciousObject>().canStartSpawning = true;//start spawning my precioussss
-        while (player.GetComponent<PlayerPreciousCount>())//.count < 1
+        while (player.GetComponent<PlayerPreciousCount>().preciousCount < 1)//.count < 1
         {
-
+            yield return new WaitForSeconds(blinkSpeed);//don't get caught doing this every frame
         }//keep it simple until they collect a precious
         StartCoroutine(EnemiesPrompt());
     }
 
     IEnumerator EnemiesPrompt()
     {
-        animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
+        animateTextScript.AnimateNewText(storyText[9] + "\n" + storyText[10]);
         yield return new WaitForSeconds(timeAfterLongPrompt * 2);
         GetComponentInChildren<SpawnEnemy>().canStartSpawning = true;
 

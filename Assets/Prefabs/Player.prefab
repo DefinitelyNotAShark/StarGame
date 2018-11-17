@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabAsset: 1
 --- !u!1 &1354585606918782
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -53,6 +53,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1811580920771074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4856195967521184}
+  - component: {fileID: 58662097029121292}
+  m_Layer: 0
+  m_Name: PreciousFinder
+  m_TagString: preciousFinder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4427463914667436
 Transform:
   m_ObjectHideFlags: 1
@@ -63,7 +79,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.97, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
-  - {fileID: 4805902731683422}
+  - {fileID: 4856195967521184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,10 +89,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354585606918782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20000002, y: 0.3, z: 0}
   m_LocalScale: {x: 2.3729527, y: 2.3729527, z: 2.3799322}
   m_Children: []
+  m_Father: {fileID: 4856195967521184}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4856195967521184
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811580920771074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4805902731683422}
   m_Father: {fileID: 4427463914667436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,6 +130,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58662097029121292
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811580920771074}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!61 &61006203447062006
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -352,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shineAxisName: Shine
-  shineDuration: 2
+  shineDuration: 1.5
   light: {fileID: 21300000, guid: 58080f2a3fbfe564e911339c2602fca5, type: 3}
   noLight: {fileID: 21300000, guid: 710f8906f5b143445b5862b66cba7aeb, type: 3}
   missSound: {fileID: 8300000, guid: ea8ae0d8ec4550349844126257dfbbad, type: 3}
@@ -385,6 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab555af013095e240a9687faed3a003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preciousCount: 0
 --- !u!114 &114640673282887690
 MonoBehaviour:
   m_ObjectHideFlags: 1

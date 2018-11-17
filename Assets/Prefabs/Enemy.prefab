@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 82256270284194934}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a3a77fd7bf729dc45aacfbb32d4d46b5, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.651
   m_Pitch: 1
@@ -176,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   playerPunishmentTime: 2
+  stunPlayer: {fileID: 8300000, guid: a3a77fd7bf729dc45aacfbb32d4d46b5, type: 3}
+  killEnemy: {fileID: 8300000, guid: a1175b815a445544c8e3e12e966e4918, type: 3}
 --- !u!212 &212103152391928962
 SpriteRenderer:
   m_ObjectHideFlags: 1

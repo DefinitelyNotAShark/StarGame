@@ -33,8 +33,8 @@ public class SpawnShiny : MonoBehaviour
         minY = -4;//hard coding lol
         maxY = 1.7f;//HACK fix later with some Viewport to world or some shit
 
-        minX = -8;
-        maxX = 8;
+        minX = -7.5f;
+        maxX = 7.5f;
     }
 
     // Update is called once per frame

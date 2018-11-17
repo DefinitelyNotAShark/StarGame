@@ -80,4 +80,9 @@ public class SpawnPreciousObject : MonoBehaviour
 
         return new Vector2(x, y);
     }
+
+    public void DecreaseAmountOnScreen()
+    {
+        numOfPreciousOnScreen--;
+    }
 }

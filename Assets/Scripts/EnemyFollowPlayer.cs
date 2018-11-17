@@ -11,6 +11,12 @@ public class EnemyFollowPlayer : MonoBehaviour
     [SerializeField]
     private float playerPunishmentTime;
 
+    [SerializeField]
+    private AudioClip stunPlayer;
+
+    [SerializeField]
+    private AudioClip killEnemy;
+
     private AudioSource audio;
     private GameObject player;
     private Vector2 vectorToMove;
@@ -18,6 +24,7 @@ public class EnemyFollowPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        audio = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
@@ -35,13 +42,14 @@ public class EnemyFollowPlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
             StartCoroutine(EnemyGotPlayerPunishment());
-        //AUDIO PLAY A DEATH SOUND      
+        }
     }
 
     IEnumerator EnemyGotPlayerPunishment()
     {
-        audio.Play();
+        audio.PlayOneShot(stunPlayer);
         GetComponent<SpriteRenderer>().enabled = false;
         player.GetComponent<MovePlayer>().canMove = false;
         player.GetComponent<CollectShinyThings>().DestroyAllShinyThings();
@@ -49,6 +57,20 @@ public class EnemyFollowPlayer : MonoBehaviour
         player.GetComponent<MovePlayer>().canMove = true;
         SpawnEnemy.enemiesOnScreen--;
         Destroy(this.gameObject);
+    }
+
+    IEnumerator PlayerGotEnemy()
+    {
+        audio.PlayOneShot(killEnemy);
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1);
+        SpawnEnemy.enemiesOnScreen--;
+        Destroy(this.gameObject);
+    }
+
+    public void CallDeathCoroutine()
+    {
+        StartCoroutine(PlayerGotEnemy());
     }
 
 }

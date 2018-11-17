@@ -97,5 +97,10 @@ public class ShinePlayer : MonoBehaviour
             audio.PlayOneShot(missSound);
             SpawnShiny.numOfShinyOnScreen--;           
         }
+
+        if(collision.tag == "enemy")
+        {
+            collision.GetComponent<EnemyFollowPlayer>().CallDeathCoroutine();
+        }
     }
 }
