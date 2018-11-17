@@ -56,7 +56,7 @@ public class SpawnShiny : MonoBehaviour
 
     IEnumerator StartSpawning()
     {
-        yield return new WaitForSeconds(Random.Range(MinTimeBetweenSpawns, MaxTimeBetweenSpawns + 1));//because max is exclusive
+        yield return new WaitForSeconds(Random.Range(MinTimeBetweenSpawns, MaxTimeBetweenSpawns));//because max is exclusive
         Instantiate(shinyPrefab, GetRandomTransform(), transform.rotation);
         audio.Play();//play jewel appear sound
         numOfShinyOnScreen++;

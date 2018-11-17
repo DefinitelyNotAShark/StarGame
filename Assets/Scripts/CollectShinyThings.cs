@@ -28,11 +28,21 @@ public class CollectShinyThings : MonoBehaviour
             if (!GetComponentInChildren<ShinePlayer>().isShining)
             {
                 audio.PlayOneShot(collectSound);
-                Destroy(collision.gameObject);               
+                Destroy(collision.gameObject);
                 shinyUI.AddUI();//change the ui
                 itemsCollected++;
                 SpawnShiny.numOfShinyOnScreen--;
             }
+        }
+    }
+
+    public void DestroyAllShinyThings()
+    {
+        int tempItemCount = itemsCollected;
+        for (int i = 0; i < tempItemCount; i++)
+        {
+            shinyUI.DeleteUI();
+            itemsCollected--;
         }
     }
 }

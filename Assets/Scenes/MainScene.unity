@@ -113,6 +113,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &254121593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254121594}
+  m_Layer: 0
+  m_Name: PreciousObjectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254121594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 254121593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585628388}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +267,10 @@ Prefab:
       propertyPath: shinyUI
       value: 
       objectReference: {fileID: 2132754164}
+    - target: {fileID: 1758847047960674, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
   m_IsPrefabAsset: 0
@@ -586,6 +618,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1304545674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304545675}
+  - component: {fileID: 1304545676}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1304545675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1304545674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585628388}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304545676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1304545674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42fd587977fc3c4aac81ad1ca7ca050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumOfEnemiesOnScreen: 1
+  enemyPrefab: {fileID: 1732207112974264, guid: 50fb6635dde98a24aa73eb6357fc5cf5,
+    type: 2}
+  MinTimeBetweenSpawns: 1
+  MaxTimeBetweenSpawns: 2
+  canStartSpawning: 0
 --- !u!1 &1470436822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1758847047960674, guid: c529effafa757bd4b9e51d47eec165f7,
@@ -808,6 +886,8 @@ MonoBehaviour:
   - I was so bright...
   - My light helped me find precious things.
   - I collected them too.
+  - There were bad things in the dark.
+  - I scared them away with my light.
   player: {fileID: 1470436822}
   blinkSpeed: 0.4
   blinkNumber: 6
@@ -823,6 +903,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1790026910}
+  - {fileID: 254121594}
+  - {fileID: 1304545675}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -965,7 +1047,7 @@ MonoBehaviour:
   maxNumOfShinyOnScreen: 1
   shinyPrefab: {fileID: 1335599836512418, guid: b623646cddd3774419b2133250173044,
     type: 2}
-  MinTimeBetweenSpawns: 0.2
+  MinTimeBetweenSpawns: 0.5
   MaxTimeBetweenSpawns: 1
   canStartSpawning: 0
 --- !u!82 &1790026912

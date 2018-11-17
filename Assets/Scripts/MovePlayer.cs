@@ -16,6 +16,7 @@ public class MovePlayer : MonoBehaviour
 
     private float horizontalValue;
     private float verticalValue;
+    public bool canMove;
 
     void Update ()
     {
@@ -24,6 +25,7 @@ public class MovePlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(canMove)
         Move();
     }
 

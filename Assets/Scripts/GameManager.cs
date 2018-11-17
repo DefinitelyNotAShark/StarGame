@@ -70,8 +70,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(startBufferTime);
         animateTextScript.AnimateNewText(storyText[0]);
         yield return new WaitForSeconds(playerInvisibleTime);
+
         player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<MovePlayer>().canMove = true;
         audio.PlayOneShot(playerAppearSound);
+
         yield return new WaitForSeconds(timeBeforeMovePrompt);
         StartCoroutine(BlinkMovePrompt());
     }
@@ -124,9 +127,17 @@ public class GameManager : MonoBehaviour
     IEnumerator ShiningScaresMyFriendsPrompt()
     {
         animateTextScript.AnimateNewText(storyText[5] + "\n" + storyText[6]);
-        yield return new WaitForSeconds(timeAfterLongPrompt);
+        yield return new WaitForSeconds(timeAfterLongPrompt * 1.5f);//longer
+        StartCoroutine(EnemiesPrompt());
     }
 
+    IEnumerator EnemiesPrompt()
+    {
+        animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
+        yield return new WaitForSeconds(timeAfterLongPrompt);
+        GetComponentInChildren<SpawnEnemy>().canStartSpawning = true;
+
+    }
     IEnumerator PreciousThingsPrompt()
     {
         animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
