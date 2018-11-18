@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyFollowPlayer : MonoBehaviour
 {
@@ -39,8 +40,15 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     void FollowThePlayer()
     {
-        if (player.gameObject.activeSelf == true)
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        try
+        {
+            if (player.gameObject.activeSelf == true)
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        catch(Exception e)
+        {
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,11 +64,10 @@ public class EnemyFollowPlayer : MonoBehaviour
     {
         audio.PlayOneShot(stunPlayer);
         GetComponent<SpriteRenderer>().enabled = false;
-        player.GetComponent<MovePlayer>().canMove = false;
+        player.GetComponent<MovePlayer>().MakePlayerUnableToMoveForABit(playerPunishmentTime);
         player.GetComponent<CollectShinyThings>().DestroyAllShinyThings();
-        yield return new WaitForSeconds(playerPunishmentTime);
-        player.GetComponent<MovePlayer>().canMove = true;
         SpawnEnemy.enemiesOnScreen--;
+        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }
 

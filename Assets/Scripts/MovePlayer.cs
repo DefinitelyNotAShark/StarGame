@@ -25,8 +25,8 @@ public class MovePlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(canMove)
-        Move();
+        if (canMove)
+            Move();
     }
 
     private void GetInput()
@@ -48,4 +48,17 @@ public class MovePlayer : MonoBehaviour
         if (horizontalValue > .1f || horizontalValue > .1f)
             GameManager.hasMoved = true;
     }
+
+    public void MakePlayerUnableToMoveForABit(float playerPunishmentTime)
+    {
+        StartCoroutine(FreezePlayer(playerPunishmentTime));
+    }
+
+    IEnumerator FreezePlayer(float playerPunishmentTime)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(playerPunishmentTime);
+        canMove = true;
+    }
+
 }

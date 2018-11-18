@@ -14,12 +14,17 @@ public class ShinyUI : MonoBehaviour
     private List<GameObject> bars = new List<GameObject>();
     private Image barInstance;
     private float barX;
-    private int barSpacing = 15;
+    private float barSpacing;
+    private void Start()
+    {
+        barSpacing = barPrefab.GetComponent<RectTransform>().rect.width;
+    }
+    
 
 
     public void AddUI()
     {
-        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 250 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
+        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 200 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
         bars.Add(barInstance.gameObject);
         barX += barSpacing;//every time we move it over a bit
     }

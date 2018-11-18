@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaf7307d4f9e904db46558ba2cb0398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.6
+  speed: 1
   playerPunishmentTime: 2
   stunPlayer: {fileID: 8300000, guid: a3a77fd7bf729dc45aacfbb32d4d46b5, type: 3}
   killEnemy: {fileID: 8300000, guid: a1175b815a445544c8e3e12e966e4918, type: 3}
