@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip playerAppearSound;
 
+    [SerializeField]
+    private GameObject earth;
+
     private AudioSource audio;
 
     public static bool hasMoved = false;
@@ -161,6 +164,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(blinkSpeed);
         }
+        GetComponentInChildren<SpawnPreciousObject>().canStartSpawning = false;//stop spawning once we met our goal
         StartCoroutine(WinPrompt());
     }
 
@@ -168,7 +172,13 @@ public class GameManager : MonoBehaviour
     {        
         animateTextScript.AnimateNewText(storyText[11] + "\n" + storyText[12]);
         yield return new WaitForSeconds(timeAfterWinPrompt);
-        //show something here
+        earth.SetActive(true);
+        while(player.GetComponent<PlayerPreciousCount>().hasFoundEarth == false)
+        {
+            yield return new WaitForSeconds(blinkSpeed);
+        }
+        player.SetActive(false);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Win Scene");
     }
 }

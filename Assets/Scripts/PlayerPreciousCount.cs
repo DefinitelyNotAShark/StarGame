@@ -8,4 +8,7 @@ public class PlayerPreciousCount : MonoBehaviour
     public int preciousCount;
 
     public int maxPreciousCount;
+
+    [SerializeField]
+    public bool hasFoundEarth;
 }
