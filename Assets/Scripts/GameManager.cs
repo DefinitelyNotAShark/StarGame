@@ -158,13 +158,13 @@ public class GameManager : MonoBehaviour
     IEnumerator EnemiesPrompt()
     {
         animateTextScript.AnimateNewText(storyText[9] + "\n" + storyText[10]);
-        yield return new WaitForSeconds(timeAfterLongPrompt * 2);
+        yield return new WaitForSeconds(timeAfterLongPrompt);
         GetComponentInChildren<SpawnEnemy>().canStartSpawning = true;
         while (player.GetComponent<PlayerPreciousCount>().preciousCount < player.GetComponent<PlayerPreciousCount>().maxPreciousCount)
         {
             yield return new WaitForSeconds(blinkSpeed);
         }
-        GetComponentInChildren<SpawnPreciousObject>().canStartSpawning = false;//stop spawning once we met our goal
+        GetComponentInChildren<SpawnPreciousObject>().StopSpawning();//stop spawning once we met our goal
         StartCoroutine(WinPrompt());
     }
 
@@ -179,6 +179,6 @@ public class GameManager : MonoBehaviour
         }
         player.SetActive(false);
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Win Scene");
+        SceneManager.LoadScene("WinScene");
     }
 }

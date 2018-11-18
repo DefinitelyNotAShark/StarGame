@@ -428,7 +428,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -444,7 +444,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -716,12 +716,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1381811568}
   - component: {fileID: 1381811567}
-  - component: {fileID: 1381811566}
   - component: {fileID: 1381811565}
   - component: {fileID: 1381811564}
+  - component: {fileID: 1381811566}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: earth
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,7 +855,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &1381811567
 SpriteRenderer:
@@ -910,11 +910,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381811563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.09, z: 0}
   m_LocalScale: {x: 1.1582075, y: 1.1582075, z: 1.1582075}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384079343
 GameObject:
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 1585628389}
   m_Layer: 0
   m_Name: GameManagerObject
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1176,12 +1176,13 @@ MonoBehaviour:
   - I collected them too...
   - There were bad things in the dark.
   - but my light kept them away...
-  - I found a planet to keep my objects safe.
+  - I found a planet to keep my things safe.
   - I called it home.
   player: {fileID: 1470436822}
   blinkSpeed: 0.4
   blinkNumber: 6
   playerAppearSound: {fileID: 8300000, guid: cabd2fc3b3c3b784ab99616420f250c1, type: 3}
+  earth: {fileID: 1381811563}
 --- !u!4 &1585628388
 Transform:
   m_ObjectHideFlags: 0
@@ -1196,7 +1197,7 @@ Transform:
   - {fileID: 254121594}
   - {fileID: 1304545675}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1585628389
 AudioSource:
@@ -1350,7 +1351,7 @@ Prefab:
     - target: {fileID: 114613848729192724, guid: c529effafa757bd4b9e51d47eec165f7,
         type: 2}
       propertyPath: maxPreciousCount
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1758847047960674, guid: c529effafa757bd4b9e51d47eec165f7, type: 2}
       propertyPath: m_IsActive

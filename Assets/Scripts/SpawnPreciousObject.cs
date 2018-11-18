@@ -30,6 +30,7 @@ public class SpawnPreciousObject : MonoBehaviour
     private float minY, maxY;
     private float minX, maxX;
     private bool canSpawnAgain = true;
+    private bool gameManagerSaysYouHaveToStop;
     private int spriteIndex;
 
     // Use this for initialization
@@ -50,8 +51,11 @@ public class SpawnPreciousObject : MonoBehaviour
             {
                 if (canSpawnAgain)
                 {
-                    StartCoroutine(StartSpawning());
-                    canSpawnAgain = false;
+                    if (gameManagerSaysYouHaveToStop == false)
+                    {
+                        StartCoroutine(StartSpawning());
+                        canSpawnAgain = false;
+                    }
                 }
             }
         }
@@ -66,7 +70,7 @@ public class SpawnPreciousObject : MonoBehaviour
 
         numOfPreciousOnScreen++;
 
-        if (spriteIndex < preciousSprites.Length - 1)//if we have more sprites to go through, then we can spawn more precious objects...
+        if (spriteIndex < preciousSprites.Length - 1 && gameManagerSaysYouHaveToStop == false)//if we have more sprites to go through, then we can spawn more precious objects...
         {
             canSpawnAgain = true;
             spriteIndex++;
@@ -84,5 +88,10 @@ public class SpawnPreciousObject : MonoBehaviour
     public void DecreaseAmountOnScreen()
     {
         numOfPreciousOnScreen--;
+    }
+
+    public void StopSpawning()
+    {
+        gameManagerSaysYouHaveToStop = true;
     }
 }

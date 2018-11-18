@@ -10,7 +10,7 @@ TagManager:
   - enemy
   - preciousCounter
   - preciousUI
-  - earth
+  - gameManager
   layers:
   - Default
   - TransparentFX

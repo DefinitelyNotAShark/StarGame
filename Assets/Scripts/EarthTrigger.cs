@@ -10,12 +10,16 @@ public class EarthTrigger : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.gameObject.tag == "preciousFinder")//if the player collected a precious
         {
-            audio.Play();
-            collision.GetComponent<PlayerPreciousCount>().hasFoundEarth = true;
+            if (collision.gameObject.GetComponentInChildren<ShinePlayer>().isShining == true)//can only collect if we're shining
+            {
+                audio.Play();
+                collision.GetComponentInParent<PlayerPreciousCount>().hasFoundEarth = true;
+            }
         }
     }
 }

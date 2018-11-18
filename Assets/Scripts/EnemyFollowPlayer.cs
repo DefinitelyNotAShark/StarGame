@@ -17,6 +17,8 @@ public class EnemyFollowPlayer : MonoBehaviour
     [SerializeField]
     private AudioClip killEnemy;
 
+    private GameManager manager;
+
     private AudioSource audio;
     private GameObject player;
     private Vector2 vectorToMove;
@@ -25,18 +27,20 @@ public class EnemyFollowPlayer : MonoBehaviour
 	void Start ()
     {
         audio = GetComponent<AudioSource>();
+        manager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         FollowThePlayer();
-	}
+    }
 
     void FollowThePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if (player.gameObject.activeSelf == true)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
