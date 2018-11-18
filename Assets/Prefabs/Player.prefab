@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsCollected: 0
+  maxShiny: 5
   collectSound: {fileID: 8300000, guid: 19cff46747be07043bffd1a12c269015, type: 3}
   shinyUI: {fileID: 0}
 --- !u!114 &114917314503147154

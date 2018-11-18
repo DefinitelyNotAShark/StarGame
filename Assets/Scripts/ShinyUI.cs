@@ -19,7 +19,7 @@ public class ShinyUI : MonoBehaviour
 
     public void AddUI()
     {
-        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 130 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
+        barInstance = Instantiate(barPrefab, new Vector2(transform.position.x - 250 + barX, transform.position.y), transform.rotation, this.gameObject.transform);
         bars.Add(barInstance.gameObject);
         barX += barSpacing;//every time we move it over a bit
     }

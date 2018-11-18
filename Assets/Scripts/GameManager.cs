@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float timeAfterLongPrompt;
+
+    [SerializeField]
+    private float timeAfterWinPrompt;
 
     [SerializeField]
     private Text text;
@@ -50,6 +54,7 @@ public class GameManager : MonoBehaviour
     public static bool canShine = false;
 
     private AnimateText animateTextScript;
+    private GameObject preciousUI;
 
 	void Start ()
     {
@@ -58,7 +63,8 @@ public class GameManager : MonoBehaviour
         promptImage.sprite = movePromptSprite;
         promptImage.enabled = false;
         animateTextScript = text.GetComponent<AnimateText>();
-
+        preciousUI = GameObject.FindGameObjectWithTag("preciousUI");
+        preciousUI.SetActive(false);
         StartCoroutine(startBuffer());
 	}
 
@@ -132,11 +138,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(timeAfterLongPrompt * 2.3f);//longer
         StartCoroutine(PreciousThingsPrompt());
     }
+
     IEnumerator PreciousThingsPrompt()
     {
         animateTextScript.AnimateNewText(storyText[7] + "\n" + storyText[8]);
         yield return new WaitForSeconds(timeAfterLongPrompt);
         GetComponentInChildren<SpawnPreciousObject>().canStartSpawning = true;//start spawning my precioussss
+        preciousUI.SetActive(true);
         while (player.GetComponent<PlayerPreciousCount>().preciousCount < 1)//.count < 1
         {
             yield return new WaitForSeconds(blinkSpeed);//don't get caught doing this every frame
@@ -149,6 +157,18 @@ public class GameManager : MonoBehaviour
         animateTextScript.AnimateNewText(storyText[9] + "\n" + storyText[10]);
         yield return new WaitForSeconds(timeAfterLongPrompt * 2);
         GetComponentInChildren<SpawnEnemy>().canStartSpawning = true;
+        while (player.GetComponent<PlayerPreciousCount>().preciousCount < player.GetComponent<PlayerPreciousCount>().maxPreciousCount)
+        {
+            yield return new WaitForSeconds(blinkSpeed);
+        }
+        StartCoroutine(WinPrompt());
+    }
 
+    IEnumerator WinPrompt()
+    {        
+        animateTextScript.AnimateNewText(storyText[11] + "\n" + storyText[12]);
+        yield return new WaitForSeconds(timeAfterWinPrompt);
+        //show something here
+        SceneManager.LoadScene("Win Scene");
     }
 }

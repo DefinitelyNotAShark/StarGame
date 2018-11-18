@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PlayerPreciousCount : MonoBehaviour
 {
+    [HideInInspector]
     public int preciousCount;
+
+    public int maxPreciousCount;
 }

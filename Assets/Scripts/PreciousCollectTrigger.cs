@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PreciousCollectTrigger : MonoBehaviour
 {
+    private PreciousUI preciousUI;
     private SpawnPreciousObject spawner;
     private bool collected = false;
     private AudioSource audio;
@@ -12,6 +13,7 @@ public class PreciousCollectTrigger : MonoBehaviour
     {
         spawner = GameObject.FindGameObjectWithTag("preciousSpawner").GetComponent<SpawnPreciousObject>();
         audio = GetComponent<AudioSource>();
+        preciousUI = GameObject.FindGameObjectWithTag("preciousCounter").GetComponent<PreciousUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,13 +30,13 @@ public class PreciousCollectTrigger : MonoBehaviour
 
                 collected = true;
             }
-            Debug.Log("Shining was false what the fuck");
         }
     }
 
     IEnumerator CollectPreciousCooldown()
     {
         GetComponent<SpriteRenderer>().enabled = false;//turn it invisible                                                
+        preciousUI.preciousCount++;
         audio.Play();//play collect noise
         spawner.DecreaseAmountOnScreen();//this helps us change the amount on screen var without making it public
         yield return new WaitForSeconds(2);

@@ -8,6 +8,8 @@ TagManager:
   - preciousSpawner
   - preciousFinder
   - enemy
+  - preciousCounter
+  - preciousUI
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,9 @@ public class CollectShinyThings : MonoBehaviour
     [HideInInspector]
     public int itemsCollected;
 
+    [SerializeField]
+    private int maxShiny;
+
     private AudioSource audio;
 
     [SerializeField]
@@ -27,11 +30,14 @@ public class CollectShinyThings : MonoBehaviour
         {
             if (!GetComponentInChildren<ShinePlayer>().isShining)
             {
-                audio.PlayOneShot(collectSound);
-                Destroy(collision.gameObject);
-                shinyUI.AddUI();//change the ui
-                itemsCollected++;
-                SpawnShiny.numOfShinyOnScreen--;
+                if (itemsCollected < maxShiny)//can't collect more than the max a
+                {
+                    audio.PlayOneShot(collectSound);
+                    Destroy(collision.gameObject);
+                    shinyUI.AddUI();//change the ui
+                    itemsCollected++;
+                    SpawnShiny.numOfShinyOnScreen--;
+                }
             }
         }
     }

@@ -43,7 +43,8 @@ public class EnemyFollowPlayer : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            StartCoroutine(EnemyGotPlayerPunishment());
+            if (collision.GetComponentInChildren<ShinePlayer>().isShining == false)
+                StartCoroutine(EnemyGotPlayerPunishment());
         }
     }
 
