@@ -16,4 +16,10 @@ public class MenuManager : MonoBehaviour
         audio.Play();
         SceneManager.LoadScene("MainScene");
     }
+
+    public void MainMenuClicked()
+    {
+        audio.Play();
+        SceneManager.LoadScene("Menu");
+    }
 }

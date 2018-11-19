@@ -20,6 +20,6 @@ public class PreciousUI : MonoBehaviour
 
     void Update ()
     {
-        text.text = preciousCount.ToString() + "/" + maxCount;
+        text.text = preciousCount.ToString() + "/" + maxCount.ToString();
 	}
 }
